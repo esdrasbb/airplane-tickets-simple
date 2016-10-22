@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory name="hibernateSessionFactory">
+
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+        <property name="hibernate.connection.url">jdbc:mysql://172.17.0.2/airplane-tickets?autoReconnect=true</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">my-secret-pw</property>
+
+        <property name="hibernate.c3p0.min_size">5</property><!-- default: 1  -->
+        <property name="hibernate.c3p0.max_size">20</property><!-- default: 100  -->
+        <property name="hibernate.c3p0.timeout">300</property><!-- default: 0 (nunca expira)  -->
+        <property name="hibernate.c3p0.max_statements">50</property><!-- default: 0 (não faz cache)  -->
+        <property name="hibernate.c3p0.idle_test_period">1000
+        </property><!-- default: 0 (não faz teste de conexões inativas)  -->
+        <property name="defaultAutoCommit">false</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+
+        <property name="hibernate.generate_statistics">false</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">false</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+        <property name="hibernate.max_fetch_depth">4</property>
+
+        <!--        <property name="hibernate.cache.use_query_cache">true</property>
+                <property name="hibernate.cache.use_second_level_cache">true</property>
+                <property name="hibernate.cache.region.factory_class">net.sf.ehcache.hibernate.EhCacheRegionFactory</property>-->
+
+        <mapping class="br.edu.fa7.model.Aeroporto"/>
+        <mapping class="br.edu.fa7.model.Cidade"/>
+        <mapping class="br.edu.fa7.model.Cliente"/>
+        <mapping class="br.edu.fa7.model.EmpresaAerea"/>
+        <mapping class="br.edu.fa7.model.Pagamento"/>
+        <mapping class="br.edu.fa7.model.Passageiro"/>
+        <mapping class="br.edu.fa7.model.Passagem"/>
+        <mapping class="br.edu.fa7.model.Pessoa"/>
+        <mapping class="br.edu.fa7.model.Reserva"/>
+        <mapping class="br.edu.fa7.model.TipoPagamento"/>
+        <mapping class="br.edu.fa7.model.Voo"/>
+
+        <!-- <class-cache class="br.edu.fa7.model.Faculdade" usage="read-only" /> -->
+
+    </session-factory>
+
+</hibernate-configuration>
